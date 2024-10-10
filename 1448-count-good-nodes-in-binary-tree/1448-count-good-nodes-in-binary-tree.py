@@ -17,6 +17,5 @@ class Solution:
             current_max = max(current_max, root.val)
             traverse(root.left, current_max)
             traverse(root.right,current_max)
-            return 
         traverse(root, float("-inf"))
         return count
