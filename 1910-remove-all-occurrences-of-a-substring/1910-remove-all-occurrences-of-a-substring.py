@@ -1,17 +1,14 @@
 class Solution:
     def removeOccurrences(self, s: str, part: str) -> str:
-        results = [''] * len(s)
+        results = []
         part_length = len(part)
-        j = 0
-        for index, character in enumerate(s):
-            results[j] = character
-            j += 1
-            if j >= part_length and ''.join(results[j - part_length:j]) == part:
-                j -= part_length
-        return ''.join(results[:j])
+        for character in s:
+            results.append(character)
+            if len(results) >= part_length and ''.join(results[-part_length:]) == part:
+                results[-part_length:] = []
+        return ''.join(results)
 
-    #daabcbaabcbc 
-    #[d,a,a,b,c,,,,,,,]
+
 
             
         
