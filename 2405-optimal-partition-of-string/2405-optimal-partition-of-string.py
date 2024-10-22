@@ -6,7 +6,9 @@ class Solution:
         for right in range(len(s)):
             if s[right] in char_set:
                 count += 1
-                char_set.clear()
+                while left < right:
+                    char_set.remove(s[left])
+                    left += 1
             char_set.add(s[right])
 
         return count + 1
