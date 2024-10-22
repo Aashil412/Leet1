@@ -1,13 +1,13 @@
 class Solution:
     def partitionString(self, s: str) -> int:
-        left, right = 0, 1
+        char_set = set()
+        left = 0
         count = 0
-        while right < len(s):
-            if s[right] == s[left]:
+        for right in range(len(s)):
+            if s[right] in char_set:
                 count += 1
-                left = right
-                right += 1
-            else:
-                right += 1
+                char_set.clear()
+            char_set.add(s[right])
+
         return count + 1
         
