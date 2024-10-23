@@ -5,23 +5,23 @@ class Solution:
         """
         ROWS = len(matrix)
         COLS = len(matrix[0])
-
+        
         row_set = set()
         col_set = set()
 
-        for i in range(ROWS):
-            for j in range(COLS):
-                if matrix[i][j] == 0:
-                    row_set.add(i)
-                    col_set.add(j)
-        
-        for i in row_set:
+        for row in range(ROWS):
             for col in range(COLS):
-                matrix[i][col] = 0
-        for j in col_set:
+                if matrix[row][col] == 0:
+                    row_set.add(row)
+                    col_set.add(col)
+
+        # 1
+        # 1
+        for row in row_set:
+            for col in range(COLS):
+                matrix[row][col] = 0
+
+        for col in col_set:
             for row in range(ROWS):
-                matrix[row][j] = 0
-
-        return matrix 
-
-        
+                matrix[row][col] = 0
+        return matrix
